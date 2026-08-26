@@ -1,0 +1,95 @@
+.rule-sets-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rule-sets h1 {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.rule-sets-sub {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin-top: 8px;
+  max-width: 60ch;
+}
+
+.rule-sets-error {
+  color: var(--red);
+  font-size: 0.9rem;
+}
+
+.rule-sets-empty {
+  color: var(--ink-faint);
+  margin-top: 24px;
+}
+
+.rule-set-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.rule-set-form textarea {
+  resize: vertical;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.rule-set-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.rule-set-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.rule-set-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.rule-set-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.rule-set-card-head h2 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.rule-set-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.rule-set-card-rules {
+  white-space: pre-wrap;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  line-height: 1.6;
+}

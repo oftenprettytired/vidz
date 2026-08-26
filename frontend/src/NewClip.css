@@ -1,0 +1,54 @@
+.new-clip h1 {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.new-clip-sub {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
+
+.new-clip-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 24px;
+  max-width: 480px;
+}
+
+.new-clip-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.new-clip-hint {
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+.new-clip-hint a {
+  color: var(--gold);
+}
+
+.new-clip-error {
+  color: var(--red);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.new-clip-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

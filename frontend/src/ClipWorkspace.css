@@ -1,0 +1,187 @@
+.workspace-loading,
+.workspace-error {
+  color: var(--ink-soft);
+}
+
+.workspace-error {
+  color: var(--red);
+}
+
+.workspace-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.workspace-back {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.workspace-back:hover {
+  color: var(--ink);
+}
+
+.workspace-head h1 {
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  margin: 0 0 8px;
+}
+
+.workspace-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.workspace-head-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.workspace-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 20px;
+}
+
+.workspace-tabs button {
+  background: none;
+  border: none;
+  color: var(--ink-faint);
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.workspace-tabs button.active {
+  color: var(--ink);
+  border-bottom-color: var(--red);
+}
+
+/* Concept tab */
+
+.concept-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.chat-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 240px;
+  max-height: 520px;
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.chat-empty {
+  color: var(--ink-faint);
+  margin: auto;
+}
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.chat-user {
+  align-self: flex-end;
+  background: var(--red-soft);
+  color: var(--ink);
+}
+
+.chat-assistant {
+  align-self: flex-start;
+  background: var(--bg-raised);
+  color: var(--ink);
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.chat-input-row textarea {
+  flex: 1;
+  resize: vertical;
+}
+
+.concept-tab-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Script tab */
+
+.script-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.script-tab-status {
+  display: flex;
+  gap: 6px;
+}
+
+.script-tab-status button {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  color: var(--ink-soft);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.script-tab-status button.active {
+  background: var(--gradient);
+  border-color: transparent;
+  color: var(--bg);
+}
+
+.script-tab-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.script-tab-label textarea {
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.script-tab-actions {
+  display: flex;
+  justify-content: flex-end;
+}

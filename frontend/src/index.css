@@ -1,0 +1,131 @@
+:root {
+  color-scheme: dark;
+
+  /* Same palette as YourRoadmap — deep charcoal-navy base, teal-to-violet
+     accent gradient. Keeps the sibling apps visually consistent. */
+  --ink: #eef1f6;
+  --ink-soft: #a6adbb;
+  --ink-faint: #6b7282;
+
+  --bg: #05070a;
+  --bg-raised: #0f1420;
+  --card: #131926;
+  --card-border: #232b3d;
+
+  --teal: #5eead4;
+  --violet: #8b5cf6;
+  --gradient: linear-gradient(120deg, var(--teal), var(--violet));
+
+  --red: var(--teal);
+  --red-soft: rgba(94, 234, 212, 0.14);
+  --gold: var(--violet);
+  --gold-soft: rgba(139, 92, 246, 0.14);
+
+  --serif: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  font-family: var(--sans);
+  line-height: 1.55;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 1000px 600px at 15% -10%, rgba(94, 234, 212, 0.1), transparent 55%),
+    radial-gradient(ellipse 900px 700px at 100% 0%, rgba(139, 92, 246, 0.14), transparent 55%),
+    linear-gradient(180deg, var(--bg-raised), var(--bg));
+  background-attachment: fixed;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--bg-raised);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
+  opacity: 0.88;
+}
+
+.btn-primary {
+  background: var(--gradient);
+  color: var(--bg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--card-border);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tag-concept {
+  background: var(--card-border);
+  color: var(--ink-soft);
+}
+
+.tag-draft {
+  background: var(--gold-soft);
+  color: var(--gold);
+}
+
+.tag-complete {
+  background: var(--red-soft);
+  color: var(--red);
+}
