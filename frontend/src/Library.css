@@ -12,7 +12,7 @@
 }
 
 .library-error {
-  color: var(--red);
+  color: var(--danger);
   font-size: 0.9rem;
 }
 

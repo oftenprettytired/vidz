@@ -1,0 +1,41 @@
+.access-gate {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.access-gate-card {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+}
+
+.access-gate-card h1 {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.access-gate-card p {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.access-gate-card input {
+  text-align: center;
+}
+
+.access-gate-error {
+  color: var(--danger);
+  font-size: 0.85rem;
+}
+
+.access-gate-card .btn {
+  justify-content: center;
+}

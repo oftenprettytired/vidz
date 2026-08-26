@@ -4,7 +4,7 @@
 }
 
 .workspace-error {
-  color: var(--red);
+  color: var(--danger);
 }
 
 .workspace-head {

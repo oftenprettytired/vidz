@@ -3,10 +3,11 @@
 // prompts). Service-role only, same single-user pattern as rule-sets.
 
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { checkAccessKey } from "../_shared/auth.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-vidz-key",
   "Access-Control-Allow-Methods": "GET, POST, PATCH, DELETE, OPTIONS",
 };
 
@@ -24,6 +25,9 @@ function json(body: unknown, status = 200) {
 
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
+
+  const authError = checkAccessKey(req, corsHeaders);
+  if (authError) return authError;
 
   if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
     return json({ error: "Server misconfigured: missing Supabase service role env" }, 500);

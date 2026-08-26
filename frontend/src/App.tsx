@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import AccessGate from "./AccessGate";
 import SiteHeader from "./SiteHeader";
 import Library from "./Library";
 import NewClip from "./NewClip";
@@ -23,9 +24,11 @@ export default function App() {
   }
 
   return (
-    <div className="app-shell">
-      <SiteHeader />
-      <main className="app-main">{page}</main>
-    </div>
+    <AccessGate>
+      <div className="app-shell">
+        <SiteHeader />
+        <main className="app-main">{page}</main>
+      </div>
+    </AccessGate>
   );
 }

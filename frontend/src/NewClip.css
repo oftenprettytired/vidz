@@ -42,7 +42,7 @@
 }
 
 .new-clip-error {
-  color: var(--red);
+  color: var(--danger);
   font-size: 0.85rem;
   margin: 0;
 }

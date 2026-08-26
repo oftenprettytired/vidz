@@ -1,5 +1,12 @@
 import { functionsUrl, anonKey } from "./supabase";
+import { getAccessKey } from "./auth";
 import type { Clip, ChatMessage, RuleSet } from "./types";
+
+export class UnauthorizedError extends Error {
+  constructor() {
+    super("Unauthorized");
+  }
+}
 
 async function call<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${functionsUrl}/${path}`, {
@@ -8,9 +15,11 @@ async function call<T>(path: string, init?: RequestInit): Promise<T> {
       "content-type": "application/json",
       authorization: `Bearer ${anonKey}`,
       apikey: anonKey,
+      "x-vidz-key": getAccessKey() ?? "",
       ...init?.headers,
     },
   });
+  if (res.status === 401) throw new UnauthorizedError();
   const data = await res.json();
   if (!res.ok) throw new Error(data.error ?? `Request failed (${res.status})`);
   return data as T;

@@ -4,10 +4,11 @@
 // AI-video-gen prompts (per shot/scene), then saves both to the clip.
 
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { checkAccessKey } from "../_shared/auth.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-vidz-key",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
@@ -98,6 +99,9 @@ function splitScriptAndPrompts(raw: string): { script: string; prompts: string }
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
   if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
+
+  const authError = checkAccessKey(req, corsHeaders);
+  if (authError) return authError;
 
   if (!ANTHROPIC_API_KEY || !SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
     return json({ error: "Server misconfigured: missing required env vars" }, 500);
