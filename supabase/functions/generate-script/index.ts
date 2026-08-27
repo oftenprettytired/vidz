@@ -66,7 +66,7 @@ async function callClaude(prompt: string): Promise<string> {
     },
     body: JSON.stringify({
       model: "claude-opus-5",
-      max_tokens: 3000,
+      max_tokens: 8192,
       messages: [{ role: "user", content: prompt }],
     }),
   });
@@ -151,7 +151,11 @@ Deno.serve(async (req: Request) => {
     ({ script, prompts } = splitScriptAndPrompts(raw));
   } catch (err) {
     console.error("Claude call failed:", err);
-    return json({ error: "Failed to generate script. Please try again." }, 502);
+    const message =
+      err instanceof Error && err.message.includes("max_tokens")
+        ? "The script ran too long to finish generating. Try a shorter runtime, or trim the concept discussion."
+        : "Failed to generate script. Please try again.";
+    return json({ error: message }, 502);
   }
 
   const { data: updated, error: updateError } = await supabase
